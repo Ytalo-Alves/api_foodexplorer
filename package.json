@@ -1,0 +1,23 @@
+{
+  "name": "api_foodexplorer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./src/server.js",
+    "migrate": "knex migrate:latest"
+  },
+  "keywords": [],
+  "author": "Ytalo Alves",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "express-async-errors": "^3.1.1",
+    "knex": "^3.1.0",
+    "nodemon": "^3.1.7",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  }
+}
