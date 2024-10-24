@@ -4,9 +4,9 @@ const ensureAuth = require("../middlewares/ensureAuth");
 
 const usersController = new UserController();
 
-const usersRouter = Router();
+const usersRoutes = Router();
 
-usersRoutes.post("/",ensureAuth, usersController.create);
-usersRoutes.put("/",  usersController.updated);
+usersRoutes.post("/", usersController.create);
+usersRoutes.put("/", ensureAuth, usersController.update);
 
-module.exports = usersRouter;
+module.exports = usersRoutes;

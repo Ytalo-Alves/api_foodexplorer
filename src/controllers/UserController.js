@@ -7,10 +7,10 @@ class UserController {
     const { name, email, password } = request.body
 
     // conectando com o banco de dados.
-    const Criptografando = await sqliteConnection()
+    const database = await sqliteConnection()
 
     // verificando se o usuário existe
-    const checkUserExists = await Criptografando.get('SELECT * FROM users WHERE email = (?)', [email])
+    const checkUserExists = await database.get('SELECT * FROM users WHERE email = (?)', [email])
 
     // Validação caso tente acessar com um e-mail que já está em uso.
     if (checkUserExists) {
@@ -47,7 +47,7 @@ class UserController {
 
   }
 
-  async updated(request, response) {
+  async update(request, response) {
     const {name, email, password, old_password} = request.body
     const user_id = request.user.id
 
@@ -82,7 +82,7 @@ class UserController {
     }
 
     await database.run(`
-      UPDATED users SET
+      UPDATE users SET
       name = ?,
       email = ?,
       password = ?,

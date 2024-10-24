@@ -1,5 +1,6 @@
 const authConfig = require('../config/auth');
 const AppError = require('../utils/appError');
+const { verify } = require('jsonwebtoken')
 
 function ensureAuth(request, response, next){
   const authHeader = request.headers.authorization;
